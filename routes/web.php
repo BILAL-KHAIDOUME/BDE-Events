@@ -27,3 +27,4 @@ Route::middleware('guest')->group(function(){
         Route::post('/logout' , [LogoutController::class , 'logout'])->name('logout');
 
 });
+
