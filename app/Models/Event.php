@@ -34,3 +34,4 @@ class Event extends Model
         return $this->capacity - $this->reservations()->count();
     }
 }
+
