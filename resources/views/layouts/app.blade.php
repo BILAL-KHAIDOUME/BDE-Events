@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 min-h-screen">
 
     <nav class="bg-white shadow">
@@ -19,8 +23,10 @@
 
             <div class="flex items-center gap-4">
                 @auth
+                    <a href="{{ route('events.index') }}" class="text-gray-700 hover:text-blue-600">Événements</a>
                     @if (auth()->user()->role === 'admin')
-                        <a href="" class="text-gray-700 hover:text-blue-600">Créer un événement</a>
+                        <a href="{{ route('admin.events.create') }}" class="text-gray-700 hover:text-blue-600">Créer un
+                            événement</a>
                     @endif
 
                     <span class="text-gray-600">{{ auth()->user()->name }}</span>
@@ -42,4 +48,5 @@
     </main>
 
 </body>
+
 </html>

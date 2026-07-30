@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -19,18 +20,16 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
-        return view('home');
+        return redirect()->route('events.index');
     })->name('home');
 
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
+    Route::resource('events', EventController::class)->only(['index', 'show']);
+
+     Route::post('/events/{event}/reserve', [ReservationController::class, 'store'])
+        ->name('reservations.store');
+
 });
 
-Route::middleware(['auth', 'admin'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
 
-        Route::resource('events', EventController::class);
-
-    });

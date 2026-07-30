@@ -19,14 +19,18 @@ class Event extends Model
         'user_id',
     ];
 
-    public function user() : BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class );
+        return $this->belongsTo(User::class);
     }
 
-    public function reservatios() : HasMany
+    public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
     }
-}
 
+    public function RemainingSeats()
+    {
+        return $this->capacity - $this->reservations()->count();
+    }
+}
