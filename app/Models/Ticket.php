@@ -18,3 +18,4 @@ class Ticket extends Model
         return $this->belongsTo(Reservation::class);
     }
 }
+

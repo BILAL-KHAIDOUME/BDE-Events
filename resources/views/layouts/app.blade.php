@@ -23,6 +23,8 @@
 
             <div class="flex items-center gap-4">
                 @auth
+                    <a href="{{ route('tickets.index') }}" class="text-gray-700 hover:text-blue-600">My Tickets</a>
+
                     <a href="{{ route('events.index') }}" class="text-gray-700 hover:text-blue-600">Événements</a>
                     @if (auth()->user()->role === 'admin')
                         <a href="{{ route('admin.events.create') }}" class="text-gray-700 hover:text-blue-600">Créer un
