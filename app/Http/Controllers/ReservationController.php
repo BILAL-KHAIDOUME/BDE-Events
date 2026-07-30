@@ -31,4 +31,3 @@ class ReservationController extends Controller
         return back()->with('success', 'Inscription effectuée avec succès.');
     }
 }
-
