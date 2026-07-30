@@ -29,4 +29,3 @@ class TicketService
         return $code;
     }
 }
-
