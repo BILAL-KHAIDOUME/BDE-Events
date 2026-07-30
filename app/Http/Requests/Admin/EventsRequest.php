@@ -33,3 +33,4 @@ class EventsRequest extends FormRequest
         ];
     }
 }
+
